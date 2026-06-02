@@ -20,7 +20,7 @@ export const usePdfThumbnail = (file: File | null): [string | null, any] => {
         reader.onload = async (event) => {
           if (event.target?.result) {
             const typedArray = new Uint8Array(event.target.result as ArrayBuffer);
-            const pdf: PDFDocumentProxy = await pdfjs.getDocument(typedArray).promise;
+            const pdf: PDFDocumentProxy = await pdfjs.getDocument({ data: typedArray }).promise;
             const page = await pdf.getPage(1);
 
             const canvas = document.createElement('canvas');
