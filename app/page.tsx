@@ -1,6 +1,14 @@
-'use client';
-import { PdfEditor } from '../components/PdfEditor';
+import dynamic from 'next/dynamic';
 
-export default function HomePage() {
-  return <PdfEditor />;
+const PdfEditor = dynamic(
+  () => import('../components/PdfEditor').then(mod => mod.PdfEditor),
+  { ssr: false }
+);
+
+export default function Page() {
+  return (
+    <main className="min-h-screen bg-[#0A0A0A] text-[#F5F5F5]">
+      <PdfEditor />
+    </main>
+  );
 }
