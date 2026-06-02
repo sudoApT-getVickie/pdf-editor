@@ -1,3 +1,4 @@
+'use client';
 import { usePdfThumbnail } from '../lib/pdfUtils';
 import { useState } from 'react';
 import { mergePdfs } from '../lib/pdfUtils';
