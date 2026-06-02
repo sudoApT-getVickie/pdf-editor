@@ -33,7 +33,7 @@ export const usePdfThumbnail = (file: File | null): [string | null, any] => {
             canvas.height = viewport.height;
             canvas.width = viewport.width;
 
-            await page.render({ canvasContext: context, viewport }).promise;
+            await page.render({ canvas, canvasContext: context, viewport }).promise;
 
             setThumbnail(canvas.toDataURL());
           }
